@@ -1,7 +1,7 @@
 const parseString = require('xml2js').parseString;
 const http = require('http');
 
-exports.getPredictions = (callback, stopId=22661) => {
+module.exports = (callback, stopId=22661) => {
 
   if (!stopId) stopId = 22661;
 
@@ -15,26 +15,19 @@ exports.getPredictions = (callback, stopId=22661) => {
 
   const nextbusURL = `http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=mbta&stopId=${stopId}`;
 
-  console.log('reaching out to: '+nextbusURL);
-
   http.get(nextbusURL, res => {
     let xmldata = "";
     res.on('data', data => {
-      console.log("\t got next bus xml data");
       xmldata += data;
     }).on('end', () => {
-      console.log("\t next bus xml data complete");
 
       parseString(xmldata, (err, result) => {
         if (err) {
-          console.log('parseString: got err');
           if (callback) {
             callback(null);
           }
           return;
         }
-
-        console.log('parseString result: '+JSON.stringify(result));
 
         const predictionStrings = result.body.predictions.map(prediction => {
           const routeTitle = prediction.$.routeTitle;
@@ -55,7 +48,7 @@ exports.getPredictions = (callback, stopId=22661) => {
         });
 
         if (callback) {
-          callback({ predictions:predictionStrings })
+          callback({ predictions:predictionStrings });
         }
       });
     });
