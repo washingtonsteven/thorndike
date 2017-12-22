@@ -1,0 +1,176 @@
+{
+  "body": {
+    "$": {
+      "copyright": "All data copyright MBTA 2017."
+    },
+    "predictions": [
+      {
+        "$": {
+          "agencyTitle": "MBTA",
+          "routeTitle": "350",
+          "routeTag": "350",
+          "stopTitle": "Massachusetts Ave @ Thorndike St",
+          "stopTag": "22661"
+        },
+        "direction": [
+          {
+            "$": {
+              "title": "Alewife via Mall"
+            },
+            "prediction": [
+              {
+                "$": {
+                  "epochTime": "1513969655355",
+                  "seconds": "3677",
+                  "minutes": "61",
+                  "isDeparture": "false",
+                  "affectedByLayover": "true",
+                  "dirTag": "350_1_var2",
+                  "vehicle": "0730",
+                  "block": "T350_176",
+                  "tripTag": "35075484"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "agencyTitle": "MBTA",
+          "routeTitle": "77",
+          "routeTag": "77",
+          "stopTitle": "Massachusetts Ave @ Thorndike St",
+          "stopTag": "22661"
+        },
+        "direction": [
+          {
+            "$": {
+              "title": "Harvard"
+            },
+            "prediction": [
+              {
+                "$": {
+                  "epochTime": "1513966220758",
+                  "seconds": "242",
+                  "minutes": "4",
+                  "isDeparture": "false",
+                  "dirTag": "77_1_var0",
+                  "vehicle": "0619",
+                  "block": "T77_58",
+                  "tripTag": "35074883"
+                }
+              },
+              {
+                "$": {
+                  "epochTime": "1513966243706",
+                  "seconds": "265",
+                  "minutes": "4",
+                  "isDeparture": "false",
+                  "dirTag": "77_1_var0",
+                  "vehicle": "0725",
+                  "block": "T77_63",
+                  "tripTag": "35074709"
+                }
+              },
+              {
+                "$": {
+                  "epochTime": "1513966760753",
+                  "seconds": "782",
+                  "minutes": "13",
+                  "isDeparture": "false",
+                  "dirTag": "77_1_var0",
+                  "vehicle": "0705",
+                  "block": "T77_67",
+                  "tripTag": "35074739"
+                }
+              },
+              {
+                "$": {
+                  "epochTime": "1513968251547",
+                  "seconds": "2273",
+                  "minutes": "37",
+                  "isDeparture": "false",
+                  "affectedByLayover": "true",
+                  "dirTag": "77_1_var0",
+                  "vehicle": "0669",
+                  "block": "T77_54",
+                  "tripTag": "35074822"
+                }
+              },
+              {
+                "$": {
+                  "epochTime": "1513969331547",
+                  "seconds": "3353",
+                  "minutes": "55",
+                  "isDeparture": "false",
+                  "affectedByLayover": "true",
+                  "dirTag": "77_1_var0",
+                  "vehicle": "1423",
+                  "block": "T77_57",
+                  "tripTag": "35074860"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "agencyTitle": "MBTA",
+          "routeTitle": "79",
+          "routeTag": "79",
+          "stopTitle": "Massachusetts Ave @ Thorndike St",
+          "stopTag": "22661"
+        },
+        "direction": [
+          {
+            "$": {
+              "title": "Alewife"
+            },
+            "prediction": [
+              {
+                "$": {
+                  "epochTime": "1513966147059",
+                  "seconds": "169",
+                  "minutes": "2",
+                  "isDeparture": "false",
+                  "dirTag": "79_1_var0",
+                  "vehicle": "0639",
+                  "block": "T79_89",
+                  "tripTag": "35075024"
+                }
+              },
+              {
+                "$": {
+                  "epochTime": "1513968812751",
+                  "seconds": "2834",
+                  "minutes": "47",
+                  "isDeparture": "false",
+                  "affectedByLayover": "true",
+                  "dirTag": "79_1_var0",
+                  "vehicle": "0639",
+                  "block": "T79_89",
+                  "tripTag": "35075034"
+                }
+              },
+              {
+                "$": {
+                  "epochTime": "1513971512751",
+                  "seconds": "5534",
+                  "minutes": "92",
+                  "isDeparture": "false",
+                  "affectedByLayover": "true",
+                  "dirTag": "79_1_var0",
+                  "vehicle": "0639",
+                  "block": "T79_89",
+                  "tripTag": "35075013"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+[debug] [2017-12-22T20:33:36.998Z] ----------------------------------------------------------------------
+[debug] [2017-12-22T20:33:37.000Z] Command:       /Users/stevewashington/.nvm/versions/node/v6.11.1/bin/node /Users/stevewashington/.nvm/versions/node/v6.11.1/bin/firebase serve --only functions
+[debug] [2017-12-22T20:33:37.001Z] CLI Version:   3.16.0
+[debug] [2017-12-22T20:33:37.001Z] Platform:      darwin
+[debug] [2017-12-22T20:33:37.001Z] Node Version:  v6.11.1
+[debug] [2017-12-22T20:33:37.001Z] Time:          Fri Dec 22 2017 15:33:37 GMT-0500 (EST)
+[debug] [2017-12-22T20:33:37.001Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-22T20:33:37.013Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-22T20:33:37.013Z] > authorizing via signed-in user
+[debug] [2017-12-22T20:33:37.015Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/thorndike-3b5a3  
+  
+ Fri Dec 22 2017 15:33:37 GMT-0500 (EST)
+[debug] [2017-12-22T20:33:37.474Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-22T20:33:37.475Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/thorndike-3b5a3/tokens  
+  
+ Fri Dec 22 2017 15:33:37 GMT-0500 (EST)
+[debug] [2017-12-22T20:33:38.005Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/stevewashington/Documents/Projects/thorndike'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-12-22T20:33:38.482Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/thorndike-3b5a3  
+  
+ Fri Dec 22 2017 15:33:38 GMT-0500 (EST)
+[debug] [2017-12-22T20:33:38.483Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/thorndike-3b5a3/apiKeys  
+  
+ Fri Dec 22 2017 15:33:38 GMT-0500 (EST)
+[debug] [2017-12-22T20:33:38.820Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-22T20:33:38.928Z] <<< HTTP RESPONSE 200
+[warn] ⚠  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] ⚠  functions: Error from emulator. Error: Emulator crashed! Check the log file...

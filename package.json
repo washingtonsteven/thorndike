@@ -1,0 +1,10 @@
+{
+  "name": "thorndike",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "firebase deploy --only functions"
+  },
+  "devDependencies": {}
+}
