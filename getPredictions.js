@@ -1,19 +1,46 @@
 const parseString = require('xml2js').parseString;
 const http = require('http');
 
-module.exports = (callback, stopId=22661) => {
+const stopMap = {
+  'thorndike':{
+    stopId:'22661',
+    routes:"*"
+  },
+  'harvard':{
+    stopId:'20761',
+    routes:["77"]
+  },
+  'porter':{
+    stopId:'23151',
+    routes:["77"]
+  },
+  'south end':{
+    stopId:'05093',
+    routes:"*"
+  },
+  'alewife':{
+    stopId:'00141',
+    routes:["79", "350"]
+  }
+};
 
-  if (!stopId) stopId = 22661;
 
-  if (typeof stopId === 'string' && (stopId.toLowerCase() === 'thorndike' || stopId === '')) {
-    stopId = 22661;
+module.exports = (callback, stopName) => {
+
+  if (!stopName || typeof stopName !== 'string') {
+    stopName = 'thorndike';
   }
 
-  if (stopId != 22661) {
-    if (callback) callback(null); return;
+  stopName = stopName.toLowerCase();
+  const stopNameTitleCase = stopName.replace(/^[a-z]/, str => str.toUpperCase());
+  const currentStop = stopMap[stopName];
+
+  if (!currentStop) {
+    callback && callback(null); return;
   }
 
-  const nextbusURL = `http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=mbta&stopId=${stopId}`;
+
+  const nextbusURL = `http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=mbta&stopId=${currentStop.stopId}`;
 
   http.get(nextbusURL, res => {
     let xmldata = "";
@@ -33,13 +60,21 @@ module.exports = (callback, stopId=22661) => {
           const routeTitle = prediction.$.routeTitle;
           const stopTitle = prediction.$.stopTitle;
 
+          if (currentStop.routes != "*" && currentStop.routes.indexOf(routeTitle) < 0) {
+            return [];
+          }
+
+          if (!prediction.direction) {
+            return [];
+          }
+
           const directionStrings = prediction.direction.map(direction => {
             const directionTitle = direction.$.title;
             const minutes = direction.prediction.length > 0 ? direction.prediction[0].$.minutes : false;
             const minuteString = minutes === 1 ? 'minute' : 'minutes';
             
             if (minutes !== false)
-              return `The next ${routeTitle} to ${directionTitle} is arriving in ${minutes} ${minuteString}`;
+              return `The next ${routeTitle} to ${directionTitle} at ${stopNameTitleCase} is arriving in ${minutes} ${minuteString}`;
             
             return `There is no prediction for ${routeTitle} going to ${directionTitle} at ${stopTitle}`;
           });
