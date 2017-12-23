@@ -17,4 +17,4 @@ app.get('/thorndike', (req, res) => {
 
 app.post('/thorndike', thorndike);
 
-app.listen(3000, () => console.log('Thorndike listening on port 3000'))
+module.exports = app;
