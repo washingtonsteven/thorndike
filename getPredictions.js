@@ -1,5 +1,5 @@
 const xml2js = require('xml2js-es6-promise');
-const fetch = require('node-fetch');
+const request = require('request-promise');
 
 const stopMap = {
   'thorndike':{
@@ -25,7 +25,7 @@ const stopMap = {
 };
 
 
-module.exports = (stopName) => { 
+exports.getPredictions = stopName => { 
   if (!stopName || typeof stopName !== 'string') {
     stopName = 'thorndike';
   }
@@ -41,10 +41,23 @@ module.exports = (stopName) => {
 
   const nextbusURL = `http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=mbta&stopId=${currentStop.stopId}`;
 
-  return fetch(nextbusURL)
-            .then(res => res.text())
+  return request(nextbusURL)
             .then(xml => xml2js(xml))
             .then(json => parseSchedule(json, stopInfo))
+}
+
+exports.stringifyPredictions = results => {
+  if (!results) {
+    return null;
+  } else {
+    let resultsMessage = results.map(predictionList => predictionList.filter(l => l.length > 0).join(". ")).filter(l => l.length > 0).join(". ");
+    resultsMessage = resultsMessage.replace(/\s\s+/g, ' ').trim();
+
+    if (resultsMessage.length > 0) 
+      return resultsMessage;
+    else 
+      return false;
+  }
 }
 
 const parseSchedule = (result, stopInfo) => {

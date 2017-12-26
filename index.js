@@ -16,5 +16,6 @@ app.get('/thorndike', (req, res) => {
 })
 
 app.post('/thorndike', thorndike);
+app.post('/thorndike/:service', thorndike);
 
 module.exports = app;

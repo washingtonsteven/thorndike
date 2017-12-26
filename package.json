@@ -6,8 +6,9 @@
   "author": "Steven Washington <washington.steven@gmail.com>",
   "dependencies": {
     "actions-on-google": "^1.6.1",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "node-fetch": "^1.7.3",
+    "request-promise": "^4.2.2",
     "xml2js-es6-promise": "^1.1.1"
   },
   "scripts": {
