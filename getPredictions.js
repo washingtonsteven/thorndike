@@ -51,11 +51,11 @@ exports.getPredictions = stopName => {
             .then(json => parseSchedule(json, stopInfo))
 }
 
-exports.stringifyPredictions = results => {
+exports.stringifyPredictions = (results, joiner = ". ") => {
   if (!results) {
     return null;
   } else {
-    let resultsMessage = results.map(predictionList => predictionList.filter(l => l.length > 0).join(". ")).filter(l => l.length > 0).join(". ");
+    let resultsMessage = results.map(predictionList => predictionList.filter(l => l.length > 0).join(joiner)).filter(l => l.length > 0).join(joiner);
     resultsMessage = resultsMessage.replace(/\s\s+/g, ' ').trim();
 
     if (resultsMessage.length > 0) 

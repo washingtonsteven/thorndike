@@ -8,7 +8,7 @@ const ifttt_webhook_url = `https://maker.ifttt.com/trigger/${eventName}/with/key
 module.exports = (req, res) => {
   const stopName = req.body.stopName;
   getPredictions(stopName)
-    .then(results => stringifyPredictions(results))
+    .then(results => stringifyPredictions(results, "\n"))
     .then(resultsMessage => {
       let notificationText = "";
       if (resultsMessage === false) {
