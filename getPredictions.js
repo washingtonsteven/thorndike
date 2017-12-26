@@ -32,13 +32,17 @@ exports.getPredictions = stopName => {
   }
 
   stopName = stopName.toLowerCase();
-  const stopNameTitleCase = stopName.replace(/^[a-z]/, str => str.toUpperCase());
-  const currentStop = stopMap[stopName];
-  const stopInfo = { currentStop, stopNameTitleCase }
+  stopName = Object.keys(stopMap).filter(s => stopName.indexOf(s) >=0)[0];
 
+  const currentStop = stopMap[stopName];
   if (!currentStop) {
     return new Promise((resolve, reject) => { resolve(null); });
   }
+
+  const stopNameTitleCase = stopName.replace(/^[a-z]/, str => str.toUpperCase());
+  const stopInfo = { currentStop, stopNameTitleCase }
+
+  
 
   const nextbusURL = `http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=mbta&stopId=${currentStop.stopId}`;
 
