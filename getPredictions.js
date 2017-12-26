@@ -22,6 +22,10 @@ const stopMap = {
   'alewife':{
     stopId:'00141',
     routes:["79", "350"]
+  },
+  'downtown':{
+    stopId:'49001',
+    routes:"*"
   }
 };
 
