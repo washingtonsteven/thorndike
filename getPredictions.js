@@ -1,5 +1,6 @@
 const xml2js = require('xml2js-es6-promise');
 const request = require('request-promise');
+const Promise = require('bluebird');
 
 const stopMap = {
   'thorndike':{
@@ -36,7 +37,7 @@ exports.getPredictions = stopName => {
   const stopInfo = { currentStop, stopNameTitleCase }
 
   if (!currentStop) {
-    callback && callback(null); return;
+    return new Promise((resolve, reject) => { resolve(null); });
   }
 
   const nextbusURL = `http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=mbta&stopId=${currentStop.stopId}`;
